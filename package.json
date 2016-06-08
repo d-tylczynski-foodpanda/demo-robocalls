@@ -1,0 +1,24 @@
+{
+  "name": "demo-robocalls",
+  "version": "1.0.0",
+  "description": "Robocalls demo app",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "./main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "engines": {
+    "node": "~5.11"
+  },
+  "author": "Foodpanda",
+  "dependencies": {
+    "aws-sdk": "^2.3.18",
+    "bluebird": "^3.4.0",
+    "fp-common": "git+ssh://git@github.com:foodpanda/npm-fp-common.git#1.1.1",
+    "fp-message-sdk": "git+ssh://git@github.com:foodpanda/npm-fp-message-sdk.git#2.1.2",
+    "fp-queue-handler": "git+ssh://git@github.com:foodpanda/npm-fp-queue-handler.git#1.2.7",
+    "redis": "^2.6.1",
+    "winston": "^2.2.0"
+  }
+}

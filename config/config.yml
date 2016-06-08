@@ -1,0 +1,29 @@
+parameters:
+    region: region
+    environment: development
+
+region: "%region%"
+environment: "%environment%"
+queue:
+    arn: ~
+    endpoint: ~
+    queueUrl: ~
+    apiVersion: ~
+    accessKeyId: ~
+    secretAccessKey: ~
+    region: ~
+    maxRetries: 5
+    maxNumberOfMessages: 10
+    visibilityTimeout: 30
+    waitTimeSeconds: 10
+scheduler:
+    intervalSec: 1;
+    lockDurationSec: 0.95
+    lookBehindSec: 3600
+    lookAheadSec: 0
+    envPrefix: "%region%_%environment%_scheduler"
+redis:
+    host: 127.0.0.1
+    port: 6379
+distributedLock:
+    prefix: "%region%_%environment%_scheduler"

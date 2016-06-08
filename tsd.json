@@ -1,0 +1,24 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "winston/winston.d.ts": {
+      "commit": "e0e746833c4cd61e07f24d00e32baa9481e7ba59"
+    },
+    "node/node.d.ts": {
+      "commit": "e0e746833c4cd61e07f24d00e32baa9481e7ba59"
+    },
+    "aws-sdk/aws-sdk.d.ts": {
+      "commit": "e0e746833c4cd61e07f24d00e32baa9481e7ba59"
+    },
+    "bluebird/bluebird.d.ts": {
+      "commit": "e0e746833c4cd61e07f24d00e32baa9481e7ba59"
+    },
+    "redis/redis.d.ts": {
+      "commit": "e0e746833c4cd61e07f24d00e32baa9481e7ba59"
+    }
+  }
+}
