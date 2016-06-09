@@ -6,7 +6,9 @@
   "private": true,
   "main": "./main.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "node main.js",
+    "postinstall": "tsd reinstall && tsc",
+    "preinstall": "npm install -g typescript@\"~1.8\" tsd@\"~0.6\" tslint@\"~3.5\""
   },
   "engines": {
     "node": "~5.11"
