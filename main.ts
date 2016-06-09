@@ -10,6 +10,11 @@ import {
 
 let callAfterSeconds = 5 * 60;
 
+function callVendor(platform: string, countryCode: string, vendorId: number): Promise<void> {
+    // calling
+    return Promise.resolve();
+}
+
 function unscheduleCallVendorMessage(platform: string, countryCode: string, vendorId: number): Promise<void> {
     return scheduler.unschedule(
         getScheduleTaskNameForCallVendorDelay(platform, countryCode, vendorId)
@@ -38,6 +43,7 @@ function getScheduleTaskNameForCallVendorDelay(platform: string, countryCode: st
     return platform + '_' + countryCode + '_call_vendor_' + vendorId;
 }
 
+// when offline and open, scheduling a call
 queueClient.registerMessageHandler(VendorOfflineOpenMessage.MESSAGE_TYPE, (message: VendorOfflineOpenMessage) => {
     return scheduleCallVendorMessage(
         message.metadata.platform,
@@ -46,6 +52,16 @@ queueClient.registerMessageHandler(VendorOfflineOpenMessage.MESSAGE_TYPE, (messa
     );
 });
 
+// calling
+queueClient.registerMessageHandler(CallVendorMessage.MESSAGE_TYPE, (message: CallVendorMessage) => {
+    return callVendor(
+        message.metadata.platform,
+        message.metadata.countryCode,
+        message.message.vendorId
+    );
+});
+
+// when online and open, unscheduling the call
 queueClient.registerMessageHandler(VendorOnlineOpenMessage.MESSAGE_TYPE, (message: VendorOnlineOpenMessage) => {
     return unscheduleCallVendorMessage(
         message.metadata.platform,
@@ -54,6 +70,7 @@ queueClient.registerMessageHandler(VendorOnlineOpenMessage.MESSAGE_TYPE, (messag
     );
 });
 
+// when online and open, unscheduling the call
 queueClient.registerMessageHandler(VendorOnlineClosedMessage.MESSAGE_TYPE, (message: VendorOnlineClosedMessage) => {
     return unscheduleCallVendorMessage(
         message.metadata.platform,
